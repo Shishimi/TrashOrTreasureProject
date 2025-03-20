@@ -3,51 +3,72 @@
 </script>
 
 <template>
-  <header>man idk</header>
+  <div class="homeBG">
+    <img class="logo" src="./assets/logo.png" />
+    <a href="#">
+      <img class="playButton" src="./assets/play-btn.png" />
+    </a>
+    <a href="#">
+      <img class="profileButton" src="./assets/profile-btn.png" />
+    </a>
+  </div>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+.homeBG {
+  background-image: url('./assets/home-bg.png');
+  display: flex;
+  background-position: center;
+  background-size: cover;
 }
 
 .logo {
-  display: block;
-  margin: 0 auto 2rem;
+  display: flex;
+  width: 50%;
+  height: 50%;
+  margin: auto;
+}
+
+.playButton {
+  display: flex;
+  cursor: pointer;
+  border: none;
+  width: 20%;
+  height: 20%;
+}
+
+.playButton:hover {
+  transform: scale(1.05);
+}
+
+.profileButton {
+  display: flex;
+  cursor: pointer;
+  border: none;
+  width: 20%;
+  height: 20%;
+}
+
+.profileButton:hover {
+  transform: scale(1.2);
 }
 
 nav {
   width: 100%;
   font-size: 12px;
   text-align: center;
-  margin-top: 2rem;
 }
 
 @media (min-width: 1024px) {
   header {
     display: flex;
     place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
   }
 
   header .wrapper {
     display: flex;
     place-items: flex-start;
     flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
   }
 }
 </style>
