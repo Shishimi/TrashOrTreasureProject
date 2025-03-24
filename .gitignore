@@ -1,0 +1,31 @@
+# .gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.env
+*.log
+*.db
+venv/
+.env/
+
+# Node/Vue
+node_modules/
+dist/
+*.log
+
+# Django
+*.pyc
+db.sqlite3
+/static/
+/media/
+*.pyo
+
+# IDEs
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
