@@ -1,7 +1,7 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import Register from '../components/Register.vue'
-import Home from "@/Home.vue";
+import { createRouter, createWebHistory } from '../../node_modules/vue-router'
+// import HomeView from '../views/HomeView.vue'
+import Register from '../RegisterPage.vue'
+import Home from '../HomePage.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
