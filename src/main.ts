@@ -1,10 +1,8 @@
-// import './assets/main.css'
-
-import { createApp } from '../node_modules/vue'
-import Home from './HomePage.vue'
+import { createApp } from 'vue'
+import App from './App.vue'
 import router from './router'
 
-const app = createApp(Home)
+const app = createApp(App)
 
 app.use(router)
 
