@@ -7,9 +7,9 @@ import { RouterLink, RouterView } from 'vue-router'
   <div>
     <img class="homeBG" src="./assets/home-bg.png" />
     <img class="logo" src="./assets/logo.png" />
-    <a href="#">
+    <router-link :to="{ path: '/gameplay' }">
       <img class="playButton" src="./assets/play-btn.png" />
-    </a>
+    </router-link>
     <router-link :to="{ path: '/register' }">
       <img class="profileButton" src="./assets/profile-btn.png" />
     </router-link>

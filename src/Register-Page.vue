@@ -61,12 +61,18 @@ export default {
 </script>
 -->
 
+<script setup lang="ts">
+import { RouterLink, RouterView } from 'vue-router'
+</script>
+
 <template>
   <div class="login-page">
     <img class="homeBG" src="./assets/home-bg.png" />
     <img class="logo" src="./assets/logo.png" />
     <img class="loginWord" src="./assets/login word.png" />
-
+    <router-link :to="{ path: '/' }">
+      <img class="home-btn" src="./assets/logo.png" />
+    </router-link>
     <div class="loginForm">
       <img class="usernameEntry" src="./assets/login username.png" />
       <img class="passwordEntry" src="./assets/login password.png" />
@@ -75,11 +81,12 @@ export default {
   </div>
 </template>
 
-<script setup lang="ts">
-
-</script>
 
 <style scoped>
+:global(body) {
+  background-color: rgb(7, 10, 6);
+}
+
 .login-page {
   position: relative;
   width: 100vw;
@@ -89,10 +96,25 @@ export default {
 
 .homeBG {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  max-width: 100vw;
+  overflow-x: hidden;
   z-index: 0;
+  left: 0;
+  top: 22vh;
+}
+
+.home-btn {
+  display: block;
+  width: 18vw;
+  height: 9vh;
+  position: fixed;
+  left: 2vw;
+  top: 23vh;
+  z-index: 1;
+}
+
+.home-btn:hover {
+  transform: scale(1.2);
 }
 
 .logo {
@@ -124,5 +146,28 @@ export default {
 .loginGoButton {
   width: 300px;
   margin-bottom: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .homeBG {
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+  }
+
+  .home-btn {
+    height: 18vh;
+    top: 3vh;
+  }
+
+  .home-btn:hover {
+    transform: scale(1.2);
+  }
+
+  .logo {
+    height: 22vh;
+    top: 0vh;
+  }
+
 }
 </style>
