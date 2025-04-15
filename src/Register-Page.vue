@@ -68,7 +68,6 @@ import { RouterLink, RouterView } from 'vue-router'
 <template>
   <div class="login-page">
     <img class="homeBG" src="./assets/home-bg.png" />
-    <img class="logo" src="./assets/logo.png" />
     <img class="loginWord" src="./assets/login word.png" />
     <router-link :to="{ path: '/' }">
       <img class="home-btn" src="./assets/logo.png" />
@@ -115,14 +114,6 @@ import { RouterLink, RouterView } from 'vue-router'
 
 .home-btn:hover {
   transform: scale(1.2);
-}
-
-.logo {
-  width: 200px;
-  position: absolute;
-  left: 1rem;
-  top: 1rem;
-  z-index: 1;
 }
 
 .loginWord {
