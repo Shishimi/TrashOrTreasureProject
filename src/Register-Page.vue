@@ -110,28 +110,44 @@ import { RouterLink, RouterView } from 'vue-router'
 }
 
 .loginWord {
-  position: relative;
+  position: fixed;
   display: block;
-  margin: 8rem auto 2rem auto;
   z-index: 2;
+<<<<<<< Updated upstream
   width: 130px;
   top: 17vh;
+=======
+  width: 40vw;
+  left: 30.5vw;
+  top: 1vh
+>>>>>>> Stashed changes
 }
 
 .loginForm {
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 2;
   position: relative;
+<<<<<<< Updated upstream
   top: 13vh;
+=======
+  gap: 0;
+  top: 25vh;
+>>>>>>> Stashed changes
 }
 
 .usernameEntry,
 .passwordEntry,
 .loginGoButton {
+<<<<<<< Updated upstream
   width: 160px;
+=======
+  width: 30vw;
+  margin: 0;
+  padding: 0;
+>>>>>>> Stashed changes
 }
+
 
 @media (min-width: 1024px) {
   .homeBG {
@@ -162,6 +178,12 @@ import { RouterLink, RouterView } from 'vue-router'
   .loginWord {
     top: 10vh;
     width: 260px;
+  }
+
+  .usernameEntry,
+  .passwordEntry,
+  .loginGoButton {
+    width: 23vw;
   }
 
 }
