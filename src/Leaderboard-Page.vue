@@ -57,7 +57,7 @@ import { RouterLink, RouterView } from 'vue-router'
 .slots {
   display: block;
   width: 70vw;
-  height: 44vh;
+  height: 37vh;
   position: fixed;
   left: 15vw;
   top: 30vh;
@@ -68,10 +68,10 @@ import { RouterLink, RouterView } from 'vue-router'
   cursor: pointer;
   border: none;
   width: 25vw;
-  height: 12.5vh;
+  height: 11vh;
   position: fixed;
   left: 80vw;
-  top: 24vw;
+  top: 27.5vw;
   z-index: 1;
 }
 

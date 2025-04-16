@@ -86,13 +86,6 @@ import { RouterLink, RouterView } from 'vue-router'
   background-color: rgb(7, 10, 6);
 }
 
-.login-page {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-}
-
 .homeBG {
   position: absolute;
   max-width: 100vw;
@@ -121,7 +114,8 @@ import { RouterLink, RouterView } from 'vue-router'
   display: block;
   margin: 8rem auto 2rem auto;
   z-index: 2;
-  width: 300px;
+  width: 130px;
+  top: 17vh;
 }
 
 .loginForm {
@@ -130,13 +124,13 @@ import { RouterLink, RouterView } from 'vue-router'
   align-items: center;
   z-index: 2;
   position: relative;
+  top: 13vh;
 }
 
 .usernameEntry,
 .passwordEntry,
 .loginGoButton {
-  width: 300px;
-  margin-bottom: 1rem;
+  width: 160px;
 }
 
 @media (min-width: 1024px) {
@@ -155,9 +149,19 @@ import { RouterLink, RouterView } from 'vue-router'
     transform: scale(1.2);
   }
 
-  .logo {
-    height: 22vh;
-    top: 0vh;
+  .usernameEntry,
+  .passwordEntry,
+  .loginGoButton {
+    width: 300px;
+  }
+
+  .loginForm {
+    top: 9vh;
+  }
+
+  .loginWord {
+    top: 10vh;
+    width: 260px;
   }
 
 }

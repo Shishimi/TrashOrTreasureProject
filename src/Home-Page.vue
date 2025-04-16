@@ -62,10 +62,10 @@ import { RouterLink, RouterView } from 'vue-router'
   cursor: pointer;
   border: none;
   width: 25vw;
-  height: 12.5vh;
+  height: 11vh;
   position: fixed;
   left: 80vw;
-  top: 24vw;
+  top: 27vw;
   z-index: 1;
 }
 
@@ -77,10 +77,10 @@ import { RouterLink, RouterView } from 'vue-router'
   cursor: pointer;
   border: none;
   width: 14vw;
-  height: 10vh;
+  height: 9vh;
   position: fixed;
   left: 85.5vw;
-  top: 37vw;
+  top: 40vw;
   z-index: 1;
 }
 
