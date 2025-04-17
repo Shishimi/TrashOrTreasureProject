@@ -113,14 +113,9 @@ import { RouterLink, RouterView } from 'vue-router'
   position: fixed;
   display: block;
   z-index: 2;
-<<<<<<< Updated upstream
-  width: 130px;
+  width: 45vw;
   top: 17vh;
-=======
-  width: 40vw;
-  left: 30.5vw;
-  top: 1vh
->>>>>>> Stashed changes
+  left: 40.5vw;
 }
 
 .loginForm {
@@ -128,24 +123,13 @@ import { RouterLink, RouterView } from 'vue-router'
   flex-direction: column;
   align-items: center;
   position: relative;
-<<<<<<< Updated upstream
-  top: 13vh;
-=======
-  gap: 0;
   top: 25vh;
->>>>>>> Stashed changes
 }
 
 .usernameEntry,
 .passwordEntry,
 .loginGoButton {
-<<<<<<< Updated upstream
   width: 160px;
-=======
-  width: 30vw;
-  margin: 0;
-  padding: 0;
->>>>>>> Stashed changes
 }
 
 
@@ -172,12 +156,12 @@ import { RouterLink, RouterView } from 'vue-router'
   }
 
   .loginForm {
-    top: 9vh;
+    top: 25vh;
   }
 
   .loginWord {
     top: 10vh;
-    width: 260px;
+    width: 350px;
   }
 
   .usernameEntry,
