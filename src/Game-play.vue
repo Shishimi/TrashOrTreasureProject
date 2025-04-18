@@ -12,14 +12,13 @@ const handleAnswerClick = (answer: string) => {
 <template>
     <div class="gameplay-page">
       <img class="homeBG" src="./assets/home-bg.png" />
-      <img class="logo" src="./assets/logo.png" />
       <router-link :to="{ path: '/' }">
       <img class="home-btn" src="./assets/logo.png" />
-    </router-link>
-    <div class="feedback">
+      </router-link>
+    <!-- <div class="feedback">
     <img class="selectedAnswer" src="./assets/selected-answer-box.png" />
     <img class="correctAnswer" src="./assets/correct-answer-box.png" />
-    </div>
+    </div> -->
     <img class="questionBox" src="./assets/question-box.png" />  
     <img class="Answer1" src="./assets/default-answer-box.png" @click="handleAnswerClick('Answer 1')"/>
     <img class="Answer2" src="./assets/default-answer-box.png" @click="handleAnswerClick('Answer 2')"/>
@@ -35,29 +34,30 @@ const handleAnswerClick = (answer: string) => {
   <style scoped>
 
   .gameplay-page {
-    position: relative;
+    /* position: relative;
     width: 100vw;
     height: 100vh;
-    overflow: hidden;
+    overflow: hidden; */
 }
   
   .homeBG {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    max-width: 100vw;
+    overflow-x: hidden;
     z-index: 0;
+    left: 0;
+    top: 22vh;
   }
 
   .home-btn {
-  display: block;
-  width: 18vw;
-  height: 9vh;
-  position: fixed;
-  left: 2vw;
-  top: 23vh;
-  z-index: 1;
-}
+    display: block;
+    width: 18vw;
+    height: 9vh;
+    position: fixed;
+    left: 2vw;
+    top: 23vh;
+    z-index: 1;
+  }
 
 .home-btn:hover {
   transform: scale(1.2);
