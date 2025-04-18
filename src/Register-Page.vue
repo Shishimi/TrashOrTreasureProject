@@ -116,11 +116,6 @@ import { RouterLink, RouterView } from 'vue-router'
   width: 45vw;
   top: 17vh;
   left: 40.5vw;
-  cursor: pointer;
-}
-
-.loginWord:hover{
-  transform: scale(1.2);
 }
 
 .loginForm {
@@ -135,6 +130,11 @@ import { RouterLink, RouterView } from 'vue-router'
 .passwordEntry,
 .loginGoButton {
   width: 160px;
+  cursor: pointer;
+}
+
+.loginGoButton:hover{
+  transform: scale(1.1);
 }
 
 
