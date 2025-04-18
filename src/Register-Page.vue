@@ -115,7 +115,7 @@ import { RouterLink, RouterView } from 'vue-router'
   z-index: 2;
   width: 45vw;
   top: 17vh;
-  left: 44.5%;
+  left: 39.5%;
 }
 
 .loginForm {
@@ -161,12 +161,13 @@ import { RouterLink, RouterView } from 'vue-router'
   }
 
   .loginForm {
-    top: 25vh;
+    top: 29vh;
+    left: 1.1vh;
   }
 
   .loginWord {
-    top: 10vh;
-    width: 350px;
+    top: 12vh;
+    width: 400px;
   }
 
   .usernameEntry,
