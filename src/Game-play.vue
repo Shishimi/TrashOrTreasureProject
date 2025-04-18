@@ -1,5 +1,12 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
+import { ref } from 'vue'
+const selectedAnswer = ref<string>('') // stores the answer clicked by the user
+
+//to handle the answer click
+const handleAnswerClick = (answer: string) => {
+  selectedAnswer.value = answer
+}
 </script>
 
 <template>
@@ -9,19 +16,18 @@ import { RouterLink, RouterView } from 'vue-router'
       <router-link :to="{ path: '/' }">
       <img class="home-btn" src="./assets/logo.png" />
     </router-link>
-    <div class="content">
     <div class="feedback">
     <img class="selectedAnswer" src="./assets/selected-answer-box.png" />
     <img class="correctAnswer" src="./assets/correct-answer-box.png" />
     </div>
-    <img class="questionBox" src="./assets/question-box.png" />
-    <div class="answersChoices">   
-    <img class="Answer1" src="./assets/default-answer-box.png" />
-    <img class="Answer2" src="./assets/default-answer-box.png" />
-    <img class="Answer3" src="./assets/default-answer-box.png" />
-    <img class="Answer4" src="./assets/default-answer-box.png" />
-    </div>
-    </div>
+    <img class="questionBox" src="./assets/question-box.png" />  
+    <img class="Answer1" src="./assets/default-answer-box.png" @click="handleAnswerClick('Answer 1')"/>
+    <img class="Answer2" src="./assets/default-answer-box.png" @click="handleAnswerClick('Answer 2')"/>
+    <img class="Answer3" src="./assets/default-answer-box.png" @click="handleAnswerClick('Answer 3')"/>
+    <img class="Answer4" src="./assets/default-answer-box.png" @click="handleAnswerClick('Answer 4')"/>
+    <router-link :to="{ path: '/register' }">
+      <img class="profileButton" src="./assets/profile-btn.png" />
+    </router-link>
     </div>
   </template>
   
@@ -44,7 +50,7 @@ import { RouterLink, RouterView } from 'vue-router'
   }
 
   .home-btn {
-    display: block;
+  display: block;
   width: 18vw;
   height: 9vh;
   position: fixed;
@@ -57,28 +63,67 @@ import { RouterLink, RouterView } from 'vue-router'
   transform: scale(1.2);
 }
   
-.content {
-  position: absolute;
-  top: 10vw;
-  left: 60vw;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  display: grid;
-  grid-template-rows: auto auto auto; 
-  gap: 2vh;
-  width: 40vw; 
-}
-
 .questionBox {
-  width: 100%;
-  height: auto;
+  width: 50vw;
+  display: block;
+  position: absolute;
+  top: 5%;
+  left: 25vw;
 }
 
-/* Answers container uses grid to create a 2x2 layout */
-.answers {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1vh;
+.Answer1 {
+  cursor: pointer;
+  width: 33vw;
+  display: block;
+  position: absolute;
+  top: 30vh;
+  left: 12vw;
+}
+
+.Answer2 {
+  cursor: pointer;
+  width: 33vw;
+  display: block;
+  position: absolute;
+  top: 30vh;
+  left: 55vw;
+}
+
+.Answer3 {
+  cursor: pointer;
+  width: 33vw;
+  display: block;
+  position: absolute;
+  top: 60vh;
+  left: 12vw;
+}
+
+.Answer4 {
+  cursor: pointer;
+  width: 33vw;
+  display: block;
+  position: absolute;
+  top: 60vh;
+  left: 55vw;
+}
+
+.Answer1:hover, .Answer2:hover, .Answer3:hover, .Answer4:hover{
+  transform: scale(1.1);
+}
+
+.profileButton {
+  cursor: pointer;
+  border: none;
+  width: 25vw;
+  height: 11vh;
+  position: fixed;
+  left: 80vw;
+  top: 27.5vw;
+  z-index: 1;
+}
+
+.profileButton:hover {
+  transform: scale(1.2);
 }
 
 @media (min-width: 1024px) {
@@ -102,10 +147,9 @@ import { RouterLink, RouterView } from 'vue-router'
     top: 0vh;
   }
 
-  .content {
-    grid-template-rows: auto auto auto;
-    gap: 2vh;
-    width: 70vw;
+  .profileButton {
+    height: 25vh;
+    top: 0;
   }
 
 }
