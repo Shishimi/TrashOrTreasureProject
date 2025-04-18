@@ -110,12 +110,12 @@ import { RouterLink, RouterView } from 'vue-router'
 }
 
 .loginWord {
-  position: fixed;
+  position: absolute;
   display: block;
   z-index: 2;
   width: 45vw;
   top: 17vh;
-  left: 40.5vw;
+  left: 44.5%;
 }
 
 .loginForm {
