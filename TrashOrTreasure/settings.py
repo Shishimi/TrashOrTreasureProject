@@ -93,14 +93,13 @@ WSGI_APPLICATION = 'TrashOrTreasure.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'login_info',
-        'USER': 'sakamoto',
-        'PASSWORD': '1234',
-        'HOST': 'localhost',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'ixuMjg80aoiTAxwT',
+        'HOST': 'db.fdzsbhvpcdmsnjitqudi.supabase.co',
         'PORT': '5432',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
