@@ -233,9 +233,9 @@ export default{
   }
 
   .loginWord {
-    top: -5vh;
-    left: 28.5vw;
-    width: 45vw;
+    top: 12vh;
+    left: 38.5vw;
+    width: 25vw;
   }
 
   .usernameEntry,
