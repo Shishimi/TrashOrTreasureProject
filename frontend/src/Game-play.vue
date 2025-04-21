@@ -10,7 +10,7 @@ const currentIndex = ref(0)
 
 const currentQuestion = ref<any | null>(null)
 
-const shuffledAnswers = ref<stringp[]>([])
+const shuffledAnswers = ref<string[]>([])
 
 const answered = ref(false)
 const fetchQuestions = async () => {
@@ -160,10 +160,13 @@ onMounted(fetchQuestions)
   top: 120px;
   left: 50%;
   transform: translateX(-50%);
-  width: 60%;
+  width: 100%;
+  max-width: 500px;
   text-align: center;
   font-size: 1.2rem;
   font-weight: bold;
+  word-wrap: break-word;
+  white-space: normal;
 }
 
 .answerText1, .answerText2, .answerText3, .answerText4 {
@@ -179,10 +182,10 @@ onMounted(fetchQuestions)
   pointer-events: none;
 }
 
-.answerText1 { top: 370px; left: 450px; }
-.answerText2 { top: 370px; left: 1280px; }
-.answerText3 { top: 650px; left: 450px; }
-.answerText4 { top: 650px; left: 1280px; }
+.answerText1 { top: 370px; left: 400px; }
+.answerText2 { top: 370px; left: 1200px; }
+.answerText3 { top: 660px; left: 400px; }
+.answerText4 { top: 660px; left: 1200px; }
 
 .gameplay-page {
     /* position: relative;
