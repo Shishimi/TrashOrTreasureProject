@@ -157,13 +157,13 @@ onMounted(fetchQuestions)
 
 .questionText {
   position: absolute;
-  top: 120px;
+  top: 100px;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 2rem;
   font-weight: bold;
   word-wrap: break-word;
   white-space: normal;
@@ -174,18 +174,21 @@ onMounted(fetchQuestions)
   z-index: 2;
   top: 0;
   left: 0;
-  width: 200px;
+  width: 100%;
+  max-width: 500px;
+  word-wrap: break-word;
+  white-space: normal;
   text-align: center;
-  font-size: 1rem;
+  font-size: 1.8rem;
   font-weight: normal;
   color: #222;
   pointer-events: none;
 }
 
-.answerText1 { top: 370px; left: 400px; }
-.answerText2 { top: 370px; left: 1200px; }
-.answerText3 { top: 660px; left: 400px; }
-.answerText4 { top: 660px; left: 1200px; }
+.answerText1 { top: 350px; left: 260px; }
+.answerText2 { top: 350px; left: 1050px; }
+.answerText3 { top: 640px; left: 260px; }
+.answerText4 { top: 640px; left: 1050px; }
 
 .gameplay-page {
     /* position: relative;
