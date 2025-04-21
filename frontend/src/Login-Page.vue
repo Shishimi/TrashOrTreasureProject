@@ -7,7 +7,6 @@ export default{
     return {
       username: '',
       password: '',
-      passwordConfirm: '',
       success: '',
       error: ''
     }
@@ -19,16 +18,6 @@ export default{
 
       if (!this.username || !this.password) {
         this.error = "Username and password are required."
-        return
-      }
-
-      if (this.password != this.passwordConfirm) {
-        this.error = "Passwords do not match."
-        return
-      }
-
-      if (!this.passwordConfirm) {
-        this.error = "Please confirm password."
         return
       }
 
@@ -48,7 +37,6 @@ export default{
           this.success = "User saved!"
           this.username = ''
           this.password = ''
-          this.passwordConfirm = ''
           console.log('Saved:', data)
         }
     } catch (errr) {
@@ -63,12 +51,12 @@ export default{
 <template>
   <div class="login-page">
     <img class="homeBG" src="./assets/home-bg.png" />
-    <img class="loginWord" src="./assets/signup_word.png" />
+    <img class="loginWord" src="./assets/login word.png" />
     <router-link :to="{ path: '/' }">
       <img class="home-btn" src="./assets/logo.png" />
     </router-link>
-    <router-link :to="{ path: '/login'}">
-      <img class="login" src="./assets/login-btn.png">
+    <router-link :to="{ path: '/register'}">
+        <img class="register" src="./assets/register-btn.png"/>
     </router-link>
     <div class="loginForm">
       <div class="input-wrapper">
@@ -87,16 +75,6 @@ export default{
             v-model="password"
             type="password"
             placeholder="Password"
-            class="overlay-input"
-        />
-      </div>
-
-      <div class="input-wrapper">
-        <img class="passwordEntry" src="./assets/login password.png" />
-        <input
-            v-model="passwordConfirm"
-            type="password"
-            placeholder="Confirm Password"
             class="overlay-input"
         />
       </div>
@@ -123,8 +101,22 @@ export default{
   margin-bottom: 15px;
 }
 
+.register {
+display: block;
+  width: 20vw;
+  height: 20vh;
+  position: fixed;
+  left: 40vw;
+  top: 63vh;
+  z-index: 2;
+}
+
+.register:hover {
+  transform: scale(1.2);
+}
+
 .overlay-input{
-  position: absolute;
+    position: absolute;
   top: 50%;
   left: 33px;
   right: 20px;
@@ -143,20 +135,6 @@ export default{
 
 ::placeholder{
   color: #888;
-}
-
-.login {
-  display: block;
-  width: 20vw;
-  height: 20vh;
-  position: fixed;
-  left: 40vw;
-  top: 63vh;
-  z-index: 2;
-}
-
-.login:hover {
-  transform: scale(1.2);
 }
 
 .homeBG {
@@ -183,20 +161,20 @@ export default{
 }
 
 .loginWord {
-  position: absolute;
+    position: absolute;
   display: block;
   z-index: 2;
-  width: 35vw;
-  top: 25vh;
-  left: 35vh;
+  width: 13vw;
+  top: 38vh;
+  left: 46.5vh;
 }
 
 .loginForm {
-  display: flex;
+    display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
-  top: 37vh;
+  top: 42vh;
 }
 
 .usernameEntry,
@@ -205,6 +183,7 @@ export default{
   width: 17vw;
   cursor: pointer;
 }
+
 
 .loginGoButton:hover{
   transform: scale(1.1);
@@ -228,14 +207,14 @@ export default{
   }
 
   .loginForm {
-    top: 24vh;
+    top: 29vh;
     left: 1.1vh;
   }
 
   .loginWord {
-    top: -5vh;
-    left: 28.5vw;
-    width: 45vw;
+    top: 15vh;
+    width: 20vw;
+    left: 40vw;
   }
 
   .usernameEntry,
@@ -249,7 +228,7 @@ export default{
     left: 10vh;
   }
 
-  .login {
+  .register {
     width: 30vh;
     height: 30vh;
     left: 20vw;
