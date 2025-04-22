@@ -15,7 +15,17 @@
   </div>
 </template>
 
+<style>
+@font-face {
+  font-family: 'bubblyFont';
+  src: url('src/assets/fonts/bubbleboddyneue-regular trial.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+</style>
 <style scoped>
+
 .homeBG {
   position: absolute;
   max-width: 100vw;

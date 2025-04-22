@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
+import {supabase} from "@/supabase";
 </script>
 
 <template>
@@ -13,12 +14,60 @@ import { RouterLink, RouterView } from 'vue-router'
     <router-link :to="{ path: '/register' }">
       <img class="profileButton" src="./assets/profile-btn.png" />
     </router-link>
+    <div class ="leaderboard-wrapper">
+      <div class="entries">
+        <div
+          v-for="(entry, index) in leaderboard"
+          :key="entry.id"
+          class="entry-row"
+          :style="{top: '${110 + index * 60}px'}"
+        >
+          <span class="entry-name">{{entry.Username}}</span>
+          <span class="entry-name">{{entry.Score}}</span>
+          <span class="entry-name">{{entry.Time}}</span>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <style scoped>
 :global(body) {
   background-color: rgb(7, 10, 6);
+}
+
+.leaderboard-wrapper {
+  position: fixed;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.entries {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  font-family: 'bubblyFont', cursive, sans-serif;
+  font-size: 1.5rem;
+  color: #2a1503;
+  font-weight: bold;
+  text-align: center;
+  pointer-events: none;
+}
+
+.entry-row {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 0 2rem;
+}
+
+.entry-name,
+.entry-score,
+.entry-time {
+  width: 30%;
 }
 
 .homeBG {
