@@ -10,7 +10,7 @@ const currentIndex = ref(0)
 
 const currentQuestion = ref<any | null>(null)
 
-const shuffledAnswers = ref<string[]>([])
+const shuffledAnswers = ref<{ text: string; isCorrect: boolean }[]>([]);
 
 const answered = ref(false)
 const fetchQuestions = async () => {
