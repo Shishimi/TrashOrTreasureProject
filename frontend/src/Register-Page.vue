@@ -22,6 +22,7 @@ export default{
         return
       }
 
+
       if (this.password !== this.passwordConfirm) {
         this.error = "Passwords do not match."
         return
@@ -165,6 +166,20 @@ export default{
   color: green;
   margin-top: 10px;
   font-weight: bold;
+}
+
+.login {
+  display: block;
+  width: 20vw;
+  height: 20vh;
+  position: fixed;
+  left: 40vw;
+  top: 63vh;
+  z-index: 2;
+}
+
+.login:hover {
+  transform: scale(1.2);
 }
 
 .login {

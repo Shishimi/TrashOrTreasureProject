@@ -28,7 +28,6 @@ const timerInterval = ref(null)
 const showAuthMessage = ref(false)
 const isLoggedIn = ref(false)
 
-
 const fetchQuestions = async () => {
   const {data} = await axios.get(
       'https://fdzsbhvpcdmsnjitqudi.supabase.co/rest/v1/QuizQuestions',
