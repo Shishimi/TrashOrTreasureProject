@@ -325,11 +325,11 @@ onMounted(() => {
   height: 100%;
   object-fit: contain;
   cursor: pointer;
-  transform: scale(1.7);
+  transform: scale(1.4);
 }
 
 .answer-img:hover{
-  transform: scale(1.8);
+  transform: scale(1.5);
 }
 .answer-text {
   position: absolute;
