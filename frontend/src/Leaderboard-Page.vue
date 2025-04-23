@@ -1,6 +1,23 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import {supabase} from "@/supabase";
+import {ref, onMounted} from "vue";
+
+const leaderboard = ref([])
+
+onMounted(async () => {
+  const {data, error} = await supabase
+      .from('Leaderboard')
+      .select('Username, Score, Time')
+      .order('Score', {ascending: false})
+      .limit(5)
+
+  if (error){
+    console.error(error)
+  }
+
+  else leaderboard.value = data
+})
 </script>
 
 <template>
@@ -20,11 +37,11 @@ import {supabase} from "@/supabase";
           v-for="(entry, index) in leaderboard"
           :key="entry.id"
           class="entry-row"
-          :style="{top: '${110 + index * 60}px'}"
+          :style="{top: `${25 + index * 15}vh`}"
         >
           <span class="entry-name">{{entry.Username}}</span>
-          <span class="entry-name">{{entry.Score}}</span>
-          <span class="entry-name">{{entry.Time}}</span>
+          <span class="entry-score">{{entry.Score}}</span>
+          <span class="entry-time">{{entry.Time}}</span>
         </div>
       </div>
     </div>
@@ -37,10 +54,10 @@ import {supabase} from "@/supabase";
 }
 
 .leaderboard-wrapper {
-  position: fixed;
+  position: relative;
   width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .entries {
@@ -58,16 +75,24 @@ import {supabase} from "@/supabase";
 
 .entry-row {
   position: absolute;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60vw; /* tighter width */
   display: flex;
-  justify-content: space-around;
-  padding: 0 2rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1vw; /* smaller horizontal padding */
+  height: 6vh;
+  z-index: 100;
 }
 
 .entry-name,
 .entry-score,
 .entry-time {
-  width: 30%;
+  flex: none;
+  width: 30%;            /* Adjust %s as needed — should total ~100% or a bit less */
+  text-align: center;
+  white-space: nowrap;
 }
 
 .homeBG {

@@ -185,32 +185,6 @@ onMounted(() => {
         src="./assets/logout-btn.png"
         alt="Logout"
         />
-    <!-- <div class="feedback">
-    <img class="selectedAnswer" src="./assets/selected-answer-box.png" />
-    <img class="correctAnswer" src="./assets/correct-answer-box.png" />
-    </div>
-    <img class="questionBox" src="./assets/question-box.png" />
-      <div class="questionText">{{ currentQuestion?.Question}}</div>
-    <img
-        class="Answer1"
-        src="./assets/default-answer-box.png"
-        @click="handleAnswerClick(shuffledAnswers[0])"/>
-      <p class="answerText1">{{ shuffledAnswers[0]}}</p>
-
-    <img class="Answer2"
-         src="./assets/default-answer-box.png"
-         @click="handleAnswerClick(shuffledAnswers[1])"/>
-      <p class="answerText2">{{ shuffledAnswers[1]}}</p>
-
-    <img class="Answer3"
-         src="./assets/default-answer-box.png"
-         @click="handleAnswerClick(shuffledAnswers[2])"/>
-      <p class="answerText3">{{ shuffledAnswers[2]}}</p>
-    <img class="Answer4"
-         src="./assets/default-answer-box.png"
-         @click="handleAnswerClick('shuffledAnswers[3]')"/>
-      <p class="answerText4">{{ shuffledAnswers[3]}}</p>
-      -->
       <div v-if="isLoggedIn && currentQuestion">
         <div v-if="shuffledAnswers.length">
           <div class="hud">
@@ -222,20 +196,17 @@ onMounted(() => {
             <img src="./assets/submit-btn.png" class="submitScore-img" />
           </div>
 
-          <img class="questionBox" src="./assets/question-box.png" />
-          <div class="questionText">{{ currentQuestion?.Question }}</div>
+          <div class="questionContainer">
+            <img class="questionBox" src="./assets/question-box.png" />
+            <div class="questionText">{{ currentQuestion?.Question }}</div>
+          </div>
 
-          <img class="Answer1" src="./assets/default-answer-box.png" @click="handleAnswerClick(shuffledAnswers[0])" />
-          <p class="answerText1">{{ shuffledAnswers[0].text }}</p>
-
-          <img class="Answer2" src="./assets/default-answer-box.png" @click="handleAnswerClick(shuffledAnswers[1])" />
-          <p class="answerText2">{{ shuffledAnswers[1].text }}</p>
-
-          <img class="Answer3" src="./assets/default-answer-box.png" @click="handleAnswerClick(shuffledAnswers[2])" />
-          <p class="answerText3">{{ shuffledAnswers[2].text }}</p>
-
-          <img class="Answer4" src="./assets/default-answer-box.png" @click="handleAnswerClick(shuffledAnswers[3])" />
-          <p class="answerText4">{{ shuffledAnswers[3].text }}</p>
+          <div class="answers-grid">
+            <div class="answer-wrapper" v-for="(answer, i) in shuffledAnswers" :key="i">
+              <img class="answer-img" src="./assets/default-answer-box.png" @click="handleAnswerClick(answer)" />
+              <p class="answer-text">{{ answer.text }}</p>
+            </div>
+          </div>
         </div>
       </div>
       <router-link :to="{ path: '/register' }">
@@ -285,57 +256,104 @@ onMounted(() => {
   text-align: center;
 }
 
+.profileButton {
+  cursor: pointer;
+  border: none;
+  width: 25vw;
+  height: 11vh;
+  position: fixed;
+  left: 80vw;
+  top: 27.5vw;
+  z-index: 1;
+}
+
+.profileButton:hover {
+  transform: scale(1.2);
+}
 .logout-image {
   position: fixed;
-  top: 200px;
-  right: -10px;
-  width: 275px;
+  top: 4vw;  /* ✅ Responsive vertical spacing */
+  right: 12vw;   /* ✅ Responsive right offset */
+  width: clamp(120px, 20vw, 275px);  /* ✅ Responsive width */
   cursor: pointer;
   z-index: 9999;
+  transition: transform 0.2s;
 }
-.questionText {
+
+
+.logout-image:hover{
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .answers-grid {
+    grid-template-columns: 1fr;
+    row-gap: 4rem;
+  }
+
+  .answer-img {
+    transform: scale(1.2);
+  }
+
+  .answer-text {
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+  }
+}
+
+.answers-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(300px, 1fr));
+  justify-content: center;
+  align-items: center;
+  column-gap: 3rem;
+  row-gap: 10rem;
+  padding: 1rem;
+  width: 90%;
+  margin: 30vh auto 0 auto;
+}
+
+.answer-wrapper {
+  position: relative;
+  width: clamp(300px, 45vw, 700px);
+  max-width: 90vw;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.answer-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  cursor: pointer;
+  transform: scale(1.7);
+}
+
+.answer-img:hover{
+  transform: scale(1.8);
+}
+.answer-text {
   position: absolute;
-  top: 100px;
+  top: 45%;
   left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  max-width: 600px;
-  text-align: center;
-  font-family: bubblyFont,sans-serif;
-  font-size: 2rem;
+  transform: translate(-50%, -100%);
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
   font-weight: bold;
-  word-wrap: break-word;
-  white-space: normal;
-}
-
-.answerText1, .answerText2, .answerText3, .answerText4 {
-  position: absolute;
-  z-index: 2;
-  top: 0;
-  left: 0;
-  width: 100%;
-  max-width: 500px;
-  word-wrap: break-word;
-  white-space: normal;
   text-align: center;
-  font-family: bubblyFont,sans-serif;
-  font-size: 1.8rem;
-  font-weight: normal;
-  color: #222;
   pointer-events: none;
+  width: 100%;
+  max-width: 100%;
+  font-family: bubblyFont, sans-serif;
+  white-space: normal; /* allow text wrapping */
+  line-height: 1.3; /* improve readability */
+  padding: 0 1.5rem;
+  color: #222;
 }
-
-.answerText1 { top: 340px; left: 300px; }
-.answerText2 { top: 340px; left: 1130px; }
-.answerText3 { top: 625px; left: 300px; }
-.answerText4 { top: 625px; left: 1130px; }
 
 .gameplay-page {
     position: relative;
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-
 }
   
   .homeBG {
@@ -360,72 +378,57 @@ onMounted(() => {
 .home-btn:hover {
   transform: scale(1.2);
 }
-  
-.questionBox {
-  width: 50vw;
-  display: block;
+
+.questionContainer {
   position: absolute;
   top: 5%;
-  left: 25vw;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90vw;
+  max-width: 900px;
+  height: auto;
+  z-index: 10;
 }
 
-.Answer1 {
-  cursor: pointer;
-  width: 33vw;
+.questionBox {
+  width: 100%;
   display: block;
+}
+
+.questionText {
   position: absolute;
-  top: 30vh;
-  left: 12vw;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  text-align: center;
+  font-family: bubblyFont, sans-serif;
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  font-weight: bold;
+  white-space: normal;
+  overflow-wrap: break-word;
+  color: black;
 }
 
-.Answer2 {
-  cursor: pointer;
-  width: 33vw;
-  display: block;
-  position: absolute;
-  top: 30vh;
-  left: 55vw;
-}
+.submitScore-wrapper {
+    position: absolute;
+    bottom: 5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    cursor: pointer;
+    width: clamp(150px, 20vw, 250px);
+  }
 
-.Answer3 {
-  cursor: pointer;
-  width: 33vw;
-  display: block;
-  position: absolute;
-  top: 60vh;
-  left: 12vw;
-}
+  .submitScore-img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.2s;
+  }
 
-.Answer4 {
-  cursor: pointer;
-  width: 33vw;
-  display: block;
-  position: absolute;
-  top: 60vh;
-  left: 55vw;
-}
-
-.logout-image:hover{
-  transform: scale(1.1);
-}
-.Answer1:hover, .Answer2:hover, .Answer3:hover, .Answer4:hover{
-  transform: scale(1.1);
-}
-
-.profileButton {
-  cursor: pointer;
-  border: none;
-  width: 25vw;
-  height: 11vh;
-  position: fixed;
-  left: 80vw;
-  top: 27.5vw;
-  z-index: 1;
-}
-
-.profileButton:hover {
-  transform: scale(1.2);
-}
+  .submitScore-wrapper:hover .submitScore-img {
+    transform: scale(1.2);
+  }
 
 @media (min-width: 1024px) {
   .homeBG {
@@ -443,33 +446,9 @@ onMounted(() => {
     transform: scale(1.2);
   }
 
-  .logo {
-    height: 22vh;
-    top: 0vh;
-  }
-
   .profileButton {
     height: 25vh;
     top: 0;
-  }
-
-  .submitScore-wrapper {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-    cursor: pointer;
-  }
-
-  .submitScore-img {
-    width: 200px;      /* Adjust size as needed */
-    height: auto;
-    transition: transform 0.2s;
-  }
-
-  .submitScore-wrapper:hover .submitScore-img {
-    transform: scale(1.2);
   }
 }
   </style>
