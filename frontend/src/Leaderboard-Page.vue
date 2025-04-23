@@ -66,7 +66,7 @@ onMounted(async () => {
   left: 0;
   width: 100%;
   font-family: 'bubblyFont', cursive, sans-serif;
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: #2a1503;
   font-weight: bold;
   text-align: center;
