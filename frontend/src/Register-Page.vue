@@ -1,6 +1,6 @@
-<script>
+<script lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import { supabase } from './supabase.js'
+import { supabase } from '@/supabase'
 import bcrypt from 'bcryptjs'
 export default{
   data() {
@@ -67,7 +67,7 @@ export default{
           this.passwordConfirm = ''
           console.log('Saved:', data)
         }
-    } catch (errr) {
+    } catch (err) {
         console.error("Encryption error:", err)
         this.error = "Something went wrong."
       }

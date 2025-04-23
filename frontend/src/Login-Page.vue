@@ -1,6 +1,6 @@
-<script>
+<script lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import { supabase } from './supabase.js'
+import { supabase } from '@/supabase'
 import bcrypt from 'bcryptjs'
 export default{
   data() {

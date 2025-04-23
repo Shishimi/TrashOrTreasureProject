@@ -1,9 +1,15 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import {supabase} from "@/supabase";
-import {ref, onMounted} from "vue";
+import { supabase } from '@/supabase'
+import {ref, onMounted} from "vue"
 
-const leaderboard = ref([])
+interface LeaderboardEntry {
+  Username: string
+  Score: number
+  Time: String
+}
+
+const leaderboard = ref<LeaderboardEntry[]>([])
 
 onMounted(async () => {
   const {data, error} = await supabase
@@ -35,7 +41,7 @@ onMounted(async () => {
       <div class="entries">
         <div
           v-for="(entry, index) in leaderboard"
-          :key="entry.id"
+          :key="entry.Username"
           class="entry-row"
           :style="{top: `${25 + index * 15}vh`}"
         >

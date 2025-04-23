@@ -4,7 +4,6 @@ import { RouterLink, RouterView } from 'vue-router'
 import { ref, onMounted} from 'vue'
 import { useRouter } from 'vue-router'
 import {supabase} from '@/supabase'
-import {read} from "node:fs";
 
 const questions = ref<any[]>([])
 
@@ -23,7 +22,7 @@ const currentScore = ref(0)
 const questionStartTime = ref(0)
 
 const timeTaken = ref(0)
-const timerInterval = ref(null)
+const timerInterval = ref<ReturnType<typeof setInterval> | null>(null)
 
 const showAuthMessage = ref(false)
 const isLoggedIn = ref(false)
