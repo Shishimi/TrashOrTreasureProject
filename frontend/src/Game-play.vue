@@ -219,7 +219,7 @@ onMounted(() => {
 
 .hud {
   position: fixed; /* force to viewport, not parent */
-  top: 0;
+  top: 18.5vh;
   left: 0;
   height: 40px;
   width: 100%;
@@ -259,10 +259,10 @@ onMounted(() => {
   cursor: pointer;
   border: none;
   width: 25vw;
-  height: 11vh;
+  height: 12vh;
   position: fixed;
   left: 80vw;
-  top: 27.5vw;
+  top: 24vw;
   z-index: 1;
 }
 
@@ -271,9 +271,9 @@ onMounted(() => {
 }
 .logout-image {
   position: fixed;
-  top: 4vw;  /* ✅ Responsive vertical spacing */
-  right: 12vw;   /* ✅ Responsive right offset */
-  width: clamp(120px, 20vw, 275px);  /* ✅ Responsive width */
+  top: 35vw;  /* ✅ Responsive vertical spacing */
+  right: -1vw;   /* ✅ Responsive right offset */
+  width: clamp(120px, 10vw, 275px);  /* ✅ Responsive width */
   cursor: pointer;
   z-index: 9999;
   transition: transform 0.2s;
@@ -305,22 +305,22 @@ onMounted(() => {
   justify-content: center;
   align-items: center;
   column-gap: 3rem;
-  row-gap: 10rem;
+  row-gap: 1rem;
   padding: 1rem;
-  width: 90%;
-  margin: 30vh auto 0 auto;
+  width: 40%;
+  margin: 40vh auto 0 auto;
 }
 
 .answer-wrapper {
   position: relative;
   width: clamp(300px, 45vw, 700px);
   max-width: 90vw;
-  height: 200px;
+  height: 100px;
   margin: 0 auto;
 }
 
 .answer-img {
-  width: 100%;
+  width: 60%;
   height: 100%;
   object-fit: contain;
   cursor: pointer;
@@ -333,13 +333,13 @@ onMounted(() => {
 .answer-text {
   position: absolute;
   top: 45%;
-  left: 50%;
+  left: 13.5vw;
   transform: translate(-50%, -100%);
-  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  font-size: clamp(1rem, 1vw, 1.8rem);
   font-weight: bold;
   text-align: center;
   pointer-events: none;
-  width: 100%;
+  width: 70%;
   max-width: 100%;
   font-family: bubblyFont, sans-serif;
   white-space: normal; /* allow text wrapping */
@@ -380,10 +380,10 @@ onMounted(() => {
 
 .questionContainer {
   position: absolute;
-  top: 5%;
+  top: 23vh;
   left: 50%;
   transform: translateX(-50%);
-  width: 90vw;
+  width: 60vw;
   max-width: 900px;
   height: auto;
   z-index: 10;
@@ -411,7 +411,7 @@ onMounted(() => {
 
 .submitScore-wrapper {
     position: absolute;
-    bottom: 5vh;
+    bottom: 23vh;
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
@@ -449,6 +449,99 @@ onMounted(() => {
     height: 25vh;
     top: 0;
   }
+  .submitScore-wrapper {
+    position: absolute;
+    bottom: 0vh;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    cursor: pointer;
+    width: clamp(150px, 20vw, 250px);
+  }
+
+  .submitScore-img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.2s;
+  }
+  .questionContainer {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90vw;
+    max-width: 900px;
+    height: auto;
+    z-index: 10;
+  }
+
+  .answer-img {
+    width: 100%;
+    height: 95%;
+    object-fit: contain;
+    cursor: pointer;
+    transform: scale(1.4);
+  }
+  .answers-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(300px, 1fr));
+  justify-content: center;
+  align-items: center;
+  column-gap: 3rem;
+  row-gap: 5rem;
+  padding: 1rem;
+  width: 90%;
+  margin: 30vh auto 0 auto;
+}
+.answer-wrapper {
+  position: relative;
+  width: clamp(300px, 45vw, 700px);
+  max-width: 90vw;
+  height: 200px;
+  margin: 0 auto;
+}
+.hud {
+  position: fixed; /* force to viewport, not parent */
+  top: 0;
+  left: 0;
+  height: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px 20px;
+  z-index: 9999; /* above EVERYTHING */
+  box-sizing: border-box;
+}
+.answer-text {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  font-weight: bold;
+  text-align: center;
+  pointer-events: none;
+  width: 100%;
+  max-width: 100%;
+  font-family: bubblyFont, sans-serif;
+  white-space: normal; /* allow text wrapping */
+  line-height: 1.3; /* improve readability */
+  padding: 0 1.5rem;
+  color: #222;
+}
+.logout-image {
+  position: fixed;
+  top: 4vw;  /* ✅ Responsive vertical spacing */
+  right: 12vw;   /* ✅ Responsive right offset */
+  width: clamp(120px, 20vw, 275px);  /* ✅ Responsive width */
+  cursor: pointer;
+  z-index: 9999;
+  transition: transform 0.2s;
+}
 }
   </style>
   
