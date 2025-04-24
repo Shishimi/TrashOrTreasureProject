@@ -61,7 +61,7 @@ export default{
         if (error) {
           this.error = error.message
         } else {
-          this.success = "User saved!"
+          this.success = "User saved! Please proceed to login page"
           this.username = ''
           this.password = ''
           this.passwordConfirm = ''
